@@ -1,0 +1,14 @@
+{
+  "name": "multiplayer-chess",
+  "version": "1.0.0",
+  "description": "A real-time multiplayer chess game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "chess.js": "^1.4.0",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}

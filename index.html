@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة الدومينو | Domino Game</title>
+    <meta name="description" content="لعبة دومينو إلكترونية بتصميم عصري">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- شاشة البداية / اللوبي -->
+    <div id="lobby-container" class="lobby-container">
+        <div class="lobby-content">
+            <h1 class="lobby-title">لعبة الدومينو</h1>
+            <p class="lobby-subtitle">اختر طريقة اللعب</p>
+            
+            <div class="lobby-options">
+                <button id="btn-play-computer" class="btn primary btn-large">لعب ضد الكمبيوتر</button>
+                <button id="btn-play-online" class="btn secondary btn-large">لعب أونلاين مع صديق</button>
+            </div>
+            
+            <div id="online-options" class="online-options hidden">
+                <div class="host-section">
+                    <h3>إنشاء لعبة</h3>
+                    <p>شارك هذا الكود مع صديقك:</p>
+                    <div class="room-code-box">
+                        <span id="my-room-code">جارِ الاتصال بالخادم...</span>
+                        <button id="btn-copy-code" class="btn primary small hidden">نسخ</button>
+                    </div>
+                </div>
+                
+                <div class="divider-text">أو</div>
+                
+                <div class="join-section">
+                    <h3>الانضمام للعبة</h3>
+                    <div class="join-box">
+                        <input type="text" id="friend-room-code" placeholder="أدخل كود صديقك هنا" class="input-field">
+                        <button id="btn-join-room" class="btn primary">انضمام</button>
+                    </div>
+                </div>
+                <div id="connection-status" class="connection-status"></div>
+                <button id="btn-back-lobby" class="btn text-btn">العودة</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <header class="game-header">
+            <h1>لعبة الدومينو</h1>
+            <div class="score-board">
+                <div class="score">الكمبيوتر (القطع: <span id="computer-count">0</span>)</div>
+                <button id="start-btn" class="btn primary">لعبة جديدة</button>
+                <div class="score">أنت (القطع: <span id="player-count">0</span>)</div>
+            </div>
+            <div id="status-message" class="status-message">اضغط على لعبة جديدة للبدء</div>
+        </header>
+
+        <main class="game-area">
+            <div id="opponent-hand" class="hand opponent-hand">
+                <!-- أحجار الكمبيوتر مقلوبة -->
+            </div>
+
+            <div id="board-container" class="board-container">
+                <div id="board" class="board">
+                    <!-- الأحجار الملعوبة توضع هنا -->
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <button id="draw-btn" class="btn secondary" disabled>اسحب حجر</button>
+                <button id="pass-btn" class="btn secondary" disabled>مرر الدور</button>
+            </div>
+
+            <div id="player-hand" class="hand player-hand">
+                <!-- أحجار اللاعب -->
+            </div>
+        </main>
+        
+        <div id="boneyard" class="boneyard">
+            المتبقي في السحب: <span id="boneyard-count">0</span>
+        </div>
+        
+        <div id="chat-container" class="chat-container hidden">
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="اكتب رسالة لخصمك...">
+                <button id="chat-send-btn" class="btn primary small">إرسال</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="game-over-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">النتيجة</h2>
+            <p id="modal-message">رسالة النهاية</p>
+            <button id="modal-close-btn" class="btn primary">إغلاق</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
